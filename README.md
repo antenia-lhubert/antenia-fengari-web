@@ -4,7 +4,7 @@ This project is a simple rework of the [fengari-web](https://github.com/fengari-
 
 > Why this rework?
 
-We needed to expose **all** fengari objects in a web environment, as well as create easily create new lua contexts.
+We needed to expose **all** fengari objects in a web environment, as well as easily create new lua contexts.
 
 Usage example:
 
