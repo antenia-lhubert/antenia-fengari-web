@@ -11,7 +11,7 @@ module.exports = [
 		entry: './src/fengari-web.js',
 		target: 'web',
 		output: {
-			filename: 'fengari-web.js',
+			filename: 'antenia-fengari-web.js',
 			library: 'fengari',
 			libraryTarget: 'umd'
 		},
@@ -48,7 +48,7 @@ module.exports = [
 		entry: './src/fengari-web.js',
 		target: 'web',
 		output: {
-			filename: 'fengari-web.bundle.js',
+			filename: 'antenia-fengari-web.bundle.js',
 			libraryTarget: 'commonjs2'
 		},
 		devtool: 'hidden-source-map',

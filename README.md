@@ -1,88 +1,32 @@
-[![Build Status](https://travis-ci.org/fengari-lua/fengari-web.svg?branch=master)](https://travis-ci.org/fengari-lua/fengari-web)
-[![npm](https://img.shields.io/npm/v/fengari-web.svg)](https://npmjs.com/package/fengari-web)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![#fengari on libera.chat](https://img.shields.io/badge/chat-%23fengari-brightgreen)](https://web.libera.chat/?channels=#fengari)
+# antenia-fengari-web
 
+This project is a simple rework of the [fengari-web](https://github.com/fengari-lua/fengari-web) project.
 
-# fengari-web
+> Why this rework?
 
-Provides anything you need to run [Fengari](https://fengari.io) in the browser.
+We needed to expose **all** fengari objects in a web environment, as well as create easily create new lua contexts.
 
-## Getting started
-
-### Download
-
-Visit the [GitHub releases page](https://github.com/fengari-lua/fengari-web/releases) and get the latest version.
-
-Alternatively you can [Build](#Building) fengari-web yourself.
-
-
-### Directly
-
-Load fengari-web in your web page:
+Usage example:
 
 ```html
-<script src="fengari-web.js" type="text/javascript"></script>
-```
+<script type="text/javascript" src="antenia-fengari-web.js"></script>
 
-Now any script of type `application/lua` will be run by fengari:
+<script>
+    const {lua, lauxlib, lualib, to_luastring, interop, createLuaState} = window.fengari;
 
-```html
-<script type="application/lua">
-print("Hello World!")
+    async function runLua(code) {
+        const {L, load} = createLuaState(true /* enable js interop, disabled by default */);
+        interop.luaopen_js(L);
+        //...context manipulation
+        load(L, code)();
+    }
+
+    runLua(document.querySelector("script[type^='text/lua']").innerHTML)
 </script>
 
-<script src="/my-script.lua" type="application/lua" async></script>
+<script type="text/lua">
+    print('yay!');
+</script>
 ```
 
-Note that if you use a `src` attribute, it is strongly recommended for it to be [`async`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async).
-
-
-### With build process
-
-See [fengari-loader](https://github.com/fengari-lua/fengari-loader/)
-
-
-## Compatibility
-
-fengari-web should work in all modern browsers.
-
-Verified to work in:
-
-  - Chrome >= 38
-  - Firefox >= 19
-  - Safari >= 8
-  - Microsoft IE 11
-  - Microsoft Edge
-
-
-## API
-
-As well as running `<script type="application/lua">` tags, fengari-web creates a `fengari` global that contains the [core `fengari` API](https://github.com/fengari-lua/fengari#the-js-api) supplemented with:
-
-  - `L`: the main `lua_State` (in which script tags are run)
-  - `interop`: containing the [fengari-interop](https://github.com/fengari-lua/fengari-interop) library
-  - `load(source, chunkname)`: a function that loads the lua code in `source` with the optional chunk name `chunkname` and returns it as a function.
-    This function can be used to programmatically run lua code in the main `lua_State` from JavaScript. e.g.
-    ```js
-    console.log(fengari.load('return 1+1')())
-    ```
-
-
-## Building
-
-```bash
-git clone https://github.com/fengari-lua/fengari-web.git
-npm install
-```
-
-This should automatically kick off the build process.
-The built files can then be found in the `dist/` directory.
-
-If you need to rebuild, run
-
-```bash
-npm run build
-```
-
-Or [use `webpack` directly](https://webpack.js.org/api/cli/).
+We also removed automatic lua script tag execution to avoid unexpected behaviour.

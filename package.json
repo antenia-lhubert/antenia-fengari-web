@@ -1,6 +1,6 @@
 {
-    "name": "fengari-web",
-    "version": "0.1.4",
+    "name": "antenia-fengari-web",
+    "version": "0.0.1",
     "description": "Provides anything you need to run Fengari in the browser",
     "repository": "https://github.com/fengari-lua/fengari-web.git",
     "contributors": [
@@ -12,7 +12,7 @@
         "url": "https://github.com/fengari-lua/fengari-web/issues"
     },
     "homepage": "https://github.com/fengari-lua/fengari-web#readme",
-    "main": "dist/fengari-web.bundle.js",
+    "main": "dist/antenia-fengari-web.bundle.js",
     "dependencies": {
         "fengari": "^0.1.4",
         "fengari-interop": "^0.1"
