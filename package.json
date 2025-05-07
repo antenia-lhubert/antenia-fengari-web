@@ -2,16 +2,17 @@
     "name": "antenia-fengari-web",
     "version": "0.0.1",
     "description": "Provides anything you need to run Fengari in the browser",
-    "repository": "https://github.com/fengari-lua/fengari-web.git",
+    "repository": "https://github.com/antenia-lhubert/antenia-fengari-web.git",
     "contributors": [
+        "Léopold Hubert <leopold.hubert@antenia.fr>",
         "Benoit Giannangeli <giann008@gmail.com>",
         "Daurnimator <quae@daurnimator.com>"
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/fengari-lua/fengari-web/issues"
+        "url": "https://github.com/antenia-lhubert/antenia-fengari-web/issues"
     },
-    "homepage": "https://github.com/fengari-lua/fengari-web#readme",
+    "homepage": "https://github.com/antenia-lhubert/antenia-fengari-web#readme",
     "main": "dist/antenia-fengari-web.bundle.js",
     "dependencies": {
         "fengari": "^0.1.4",

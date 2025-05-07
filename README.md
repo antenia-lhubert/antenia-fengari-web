@@ -9,19 +9,20 @@ We needed to expose **all** fengari objects in a web environment, as well as eas
 Usage example:
 
 ```html
-<script type="text/javascript" src="antenia-fengari-web.js"></script>
+  <script type="text/javascript" src="antenia-fengari-web.js"></script>
 
 <script>
-    const {lua, lauxlib, lualib, to_luastring, interop, createLuaState} = window.fengari;
+    window.onload = function () {
+        const {createLuaState} = window.fengari;
 
-    async function runLua(code) {
-        const {L, load} = createLuaState(true /* enable js interop, disabled by default */);
-        interop.luaopen_js(L);
-        //...context manipulation
-        load(L, code)();
+        async function runLua(code) {
+            const {L, load} = createLuaState(true /* enable js interop, disabled by default */);
+            //...context manipulation
+            load(code)();
+        }
+
+        runLua(document.querySelector("script[type^='text/lua']").innerHTML)
     }
-
-    runLua(document.querySelector("script[type^='text/lua']").innerHTML)
 </script>
 
 <script type="text/lua">
