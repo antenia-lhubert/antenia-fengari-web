@@ -1,6 +1,6 @@
 {
     "name": "antenia-fengari-web",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Provides anything you need to run Fengari in the browser",
     "repository": "https://github.com/antenia-lhubert/antenia-fengari-web.git",
     "contributors": [
