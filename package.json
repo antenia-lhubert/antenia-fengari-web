@@ -13,7 +13,7 @@
         "url": "https://github.com/antenia-lhubert/antenia-fengari-web/issues"
     },
     "homepage": "https://github.com/antenia-lhubert/antenia-fengari-web#readme",
-    "main": "dist/antenia-fengari-web.bundle.js",
+    "main": "dist/antenia-fengari-web.js",
     "dependencies": {
         "fengari": "^0.1.4",
         "fengari-interop": "^0.1"
